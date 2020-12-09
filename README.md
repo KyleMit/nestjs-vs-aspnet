@@ -1,4 +1,18 @@
-# NestJs vs AspNet
+---
+marp: true
+theme: uncover
+---
+
+<!--
+kick off with:
+
+```bash
+(npx live-server readme.html &) && (npx @marp-team/marp-cli -w readme.md &)
+```
+
+-->
+
+# NestJS vs AspNET
 
 
 [**NestJS**](https://nestjs.com/)
@@ -9,10 +23,16 @@
 
 > ASP.NET Core is a cross-platform .NET framework for building modern cloud-based web applications on Windows, Mac, or Linux.
 
+---
+
 ## Github
 
 * [nestjs/nest](https://github.com/nestjs/nest)
 * [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore)
+
+
+---
+
 
 ## Overview
 
@@ -23,15 +43,24 @@
 * Deployment
 
 
+---
+
+
 ## History
 
 * aspnet - built on top of dotnet core
 * nestjs - built on top of node / express
 
+---
+
+
 ## Prerequisites
 
 * [.NET SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
 * [Node JS](https://nodejs.org/en/download/)
+
+---
+
 
 ## Getting Started
 
@@ -43,6 +72,8 @@ dotnet run
 open http://localhost:5000
 ```
 
+---
+
 ### Nest
 
 ```bash
@@ -52,6 +83,9 @@ npm install
 npm run start
 open http://localhost:3000
 ```
+
+---
+
 
 
 
@@ -69,3 +103,22 @@ export class AppController {
   }
 }
 ```
+
+
+---
+
+
+
+---
+
+## Resources
+
+[KyleMit/**nestjs-vs-aspnet**](https://github.com/KyleMit/nestjs-vs-aspnet)
+
+---
+
+## Fin
+
+### Thanks ya'll! 🎉
+
+### Questions?
