@@ -22,15 +22,8 @@ mkdir -p _site/_assets && cp -r _assets _site/ && npx @marp-team/marp-cli readme
 # AspNET vs NestJS
 
 <style>
-.logos p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.logos img {
-  width: 124px;
-  margin: 20px;
-}
+.logos p { display: flex; justify-content: center; align-items: center; }
+.logos img { width: 124px; margin: 20px; }
 </style>
 
 <div class="logos">
