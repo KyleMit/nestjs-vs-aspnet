@@ -86,7 +86,7 @@ with me, Kyle 👋
 
 ## Model View Controller
 
-![model view controller](/_assets/model-view-controller.png.png)
+![model view controller](/_assets/model-view-controller.png)
 
 ---
 
