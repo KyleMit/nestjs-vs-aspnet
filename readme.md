@@ -61,10 +61,16 @@ with me, Kyle 👋
 - [nestjs/nest](https://github.com/nestjs/nest)
 - [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore)
 
+---
+
+## Docs
+
+- [NestJS Documentation](https://docs.nestjs.com/)
+- [ASP.NET Core Docs](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0)
 
 ---
 
-
+<!--
 ## Overview
 
 - Get Started
@@ -74,7 +80,7 @@ with me, Kyle 👋
 - Deployment
 
 
----
+--- -->
 
 
 ## Architecture
@@ -119,8 +125,6 @@ npm install @nestjs/cli -g
 
 ```bash
 dotnet new mvc -o aspnet
-dotnet run
-open http://localhost:5000
 ```
 
 ---
@@ -131,7 +135,31 @@ open http://localhost:5000
 git clone https://github.com/nestjs/typescript-starter.git nestjs --depth 1
 cd nestjs
 npm install
-npm run start
+```
+
+---
+
+## Running Locally
+
+---
+
+### Running Locally (.net)
+
+```bash
+dotnet run       # run once
+dotnet watch run # run with watch
+
+open http://localhost:5000
+```
+
+---
+
+### Running Locally (nest)
+
+```bash
+npm run start     # run once
+npm run start:dev # run with watch
+
 open http://localhost:3000
 ```
 
@@ -204,8 +232,10 @@ dotnet aspnet-codegenerator controller -name weather
 
 ### Controller (.net)
 
+[Add a controller](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-controller?view=aspnetcore-5.0&tabs=visual-studio)
+
 ```cs
-[ApiController]
+// Controllers/WeatherController.cs
 [Route("weather")]
 public class WeatherController : Controller
 {
@@ -221,10 +251,13 @@ public class WeatherController : Controller
 
 ### Controller (nest)
 
+[Controllers](https://docs.nestjs.com/controllers)
+
 ```ts
 // weather.controller.ts
 @Controller('weather')
 export class WeatherController {
+
   @Get()
   getWeather(): string {
     return 'Frightful';
@@ -235,27 +268,182 @@ export class WeatherController {
 
 ---
 
-## Controller Signature
+## Model Binding
 
 ---
 
+### Model Binding (.net)
+
+```cs
+[HttpGet]
+[Route("light")]
+public IActionResult GetDaylight([FromQuery] int hour)
+{
+    var result = hour < 6 || hour > 18 ? "Dark" : "Light";
+    return Content(result);
+}
+```
 
 ---
+
+### Model Binding (nest)
+
+```ts
+@Get('light')
+getDaylight(@Query('hour') hour: number): string {
+  console.log(hour);
+  return hour < 6 || hour > 18 ? 'Dark' : 'Light';
+}
+```
+
+---
+
+## Models
+
+---
+
+### Models (.net)
+
+```cs
+public class Home
+{
+    public Home(string msg)
+    {
+        this.Message = msg;
+    }
+    public string Message { get; set; }
+}
+```
+
+
+---
+
+### Models (nest)
+
+```ts
+@Injectable()
+export class Home {
+  message: string;
+
+  constructor(msg: string) {
+    this.message = msg;
+  }
+}
+```
+
+---
+
+## Views Setup
+
+---
+
+### Views Setup (.net)
+
+```cs
+// startup.cs
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+    services.AddMvcCore().AddRazorViewEngine();
+    // ...
+}
+```
+
+---
+
+### Views Setup (nest)
+
+[MVC for NestJS](https://docs.nestjs.com/techniques/mvc)
+
+```bash
+npm install --save hbs
+```
+
+```ts
+// main.ts
+app.useStaticAssets(join(__dirname, '..', 'public'));
+app.setBaseViewsDir(join(__dirname, '..', 'views'));
+app.setViewEngine('hbs');
+```
+
+---
+
+## View Controllers
+
+---
+
+### View Controllers (.net)
+
+```cs
+[Route("home")]
+public class HomeController : Controller
+{
+    public IActionResult Index()
+    {
+        var model = new Home("Hi There!");
+        return View(model);
+    }
+}
+```
+
+---
+
+### View Controllers (nest)
+
+```ts
+@Controller('home')
+export class HomeController {
+  @Get()
+  @Render('index')
+  root() {
+    const model = new Home('Hello');
+    return model;
+  }
+}
+```
+
+---
+
+## Views
+
+---
+
+### Views (.net)
+
+Razor Syntax
+
+```cs
+// views/home/index.cshtml
+@model.Message
+```
+
+---
+
+### Views (nest)
+
+[Handlebars / hbs](https://github.com/pillarjs/hbs#readme)
+
+```hbs
+<!-- views/home/index.hbs -->
+{{message}}
+```
+
+
+
+<!-- ---
 
 ## Dependency Injection
 
 ---
-
----
-
-Views
-
+ -->
 
 ---
 
 ## Resources
 
-[KyleMit/**nestjs-vs-aspnet**](https://github.com/KyleMit/nestjs-vs-aspnet)
+- [KyleMit/**nestjs-vs-aspnet**](https://github.com/KyleMit/nestjs-vs-aspnet)
+- [Introduction to NestJS](https://docs.nestjs.com/)
+- [Introduction to ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0)
 
 ---
 

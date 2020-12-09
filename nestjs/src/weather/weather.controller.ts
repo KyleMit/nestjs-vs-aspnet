@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 
 @Controller('weather')
 export class WeatherController {
@@ -8,7 +8,8 @@ export class WeatherController {
   }
 
   @Get('light')
-  getDaylight(@Param('hour') id: string): string {
-    return 'Frightful';
+  getDaylight(@Query('hour') hour: number): string {
+    console.log(hour);
+    return hour < 6 || hour > 18 ? 'Dark' : 'Light';
   }
 }

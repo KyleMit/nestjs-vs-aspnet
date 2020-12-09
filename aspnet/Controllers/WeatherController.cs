@@ -15,5 +15,14 @@ namespace aspnet
         {
             return Content("Frightful");
         }
+
+        [HttpGet]
+        [Route("light")]
+        public IActionResult GetDaylight([FromQuery] int hour)
+        {
+            Console.WriteLine(hour);
+            var result = hour < 6 || hour > 18 ? "Dark" : "Light";
+            return Content(result);
+        }
     }
 }
