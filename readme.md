@@ -24,6 +24,7 @@ mkdir -p _site/_assets && cp -r _assets _site/ && npx @marp-team/marp-cli readme
 <style>
 .logos p { display: flex; justify-content: center; align-items: center; }
 .logos img { width: 124px; margin: 20px; }
+img {max-width: 100%}
 </style>
 
 <div class="logos">
@@ -51,12 +52,16 @@ with me, Kyle 👋
 
 ## Github
 
+Fully Open Source - Free as in Freedom 😊
+
 - [nestjs/nest](https://github.com/nestjs/nest)
 - [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore)
 
 ---
 
 ## Docs
+
+Well written docs 📝
 
 - [NestJS Documentation](https://docs.nestjs.com/)
 - [ASP.NET Core Docs](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0)
@@ -78,6 +83,8 @@ with me, Kyle 👋
 
 ## Architecture
 
+Evolutions of Prior Art 🏛
+
 - **aspnet** - built on top of dotnet core
 - **nestjs** - built on top of node / express
 
@@ -86,11 +93,15 @@ with me, Kyle 👋
 
 ## Model View Controller
 
+A common paradigm for your data 🛠
+
 ![model view controller](/_assets/model-view-controller.png)
 
 ---
 
 ## Dependencies
+
+What you'll need to get started 💻
 
 ---
 
@@ -118,6 +129,8 @@ npm install @nestjs/cli -g
 
 ## Getting Started
 
+Hello World 👋
+
 ---
 
 ### Getting Started (.net)
@@ -139,6 +152,8 @@ npm install
 ---
 
 ## Running Locally
+
+Getting the project up and running 👩‍💻
 
 ---
 
@@ -333,6 +348,10 @@ export class Home {
 ---
 
 ## Views Setup
+
+Neither solution comes with views in the bare bones setup.
+
+Both are well supported
 
 ---
 
