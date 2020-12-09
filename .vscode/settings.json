@@ -1,0 +1,6 @@
+{
+  "markdownlint.config": {
+    "MD004": { "style": "consistent" },
+    "MD033": false
+  }
+}

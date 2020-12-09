@@ -11,10 +11,10 @@ kick off with:
 
 ```bash
 # serve
-cp -r _assets _site && (npx live-server _site &) && (npx @marp-team/marp-cli -w readme.md -o _site/index.html --html &)
+mkdir -p _site/_assets && cp -r _assets _site/ && (npx live-server _site &) && (npx @marp-team/marp-cli -w readme.md -o _site/index.html --html &)
 
 # build
-cp -r _assets _site && npx @marp-team/marp-cli readme.md -o _site/index.html --html
+mkdir -p _site/_assets && cp -r _assets _site/ && npx @marp-team/marp-cli readme.md -o _site/index.html --html
 ```
 
 -->
@@ -22,7 +22,15 @@ cp -r _assets _site && npx @marp-team/marp-cli readme.md -o _site/index.html --h
 # AspNET vs NestJS
 
 <style>
-.logos img {width: 124px;}
+.logos p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logos img {
+  width: 124px;
+  margin: 20px;
+}
 </style>
 
 <div class="logos">
@@ -36,13 +44,13 @@ with me, Kyle 👋
 
 ---
 
-### [**ASP.NET**](https://dotnet.microsoft.com/apps/aspnet)
+## [**ASP.NET**](https://dotnet.microsoft.com/apps/aspnet)
 
 > ASP.​NET Core is a cross-platform .NET framework for building modern cloud-based web applications on Windows, Mac, or Linux.
 
 ---
 
-### [**NestJS**](https://nestjs.com/)
+## [**NestJS**](https://nestjs.com/)
 
 > A progressive Node.js framework for building efficient, scalable, and enterprise-grade server-side applications on top of TypeScript & JavaScript (ES6, ES7, ES8) 🚀
 
@@ -163,7 +171,33 @@ async function bootstrap() {
 bootstrap();
 ```
 
-## Controller
+---
+
+## Create Controller
+
+---
+
+### Create Controller (.net)
+
+[nest schematics](https://docs.nestjs.com/cli/usages#nest-generate)
+
+```bash
+nest generate controller weather
+```
+
+---
+
+### Create Controller (nest)
+
+[aspnet-codegenerator](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-5.0)
+
+```bash
+dotnet aspnet-codegenerator controller -name weather
+```
+
+---
+
+## Controllers
 
 ---
 
@@ -171,21 +205,29 @@ bootstrap();
 ### Controller (.net)
 
 ```cs
-
+[ApiController]
+[Route("weather")]
+public class WeatherController : Controller
+{
+    [HttpGet]
+    public IActionResult GetWeather()
+    {
+        return Content("Frightful");
+    }
+}
 ```
 
+---
 
 ### Controller (nest)
 
 ```ts
-
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
-
+// weather.controller.ts
+@Controller('weather')
+export class WeatherController {
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getWeather(): string {
+    return 'Frightful';
   }
 }
 ```
@@ -193,6 +235,20 @@ export class AppController {
 
 ---
 
+## Controller Signature
+
+---
+
+
+---
+
+## Dependency Injection
+
+---
+
+---
+
+Views
 
 
 ---
